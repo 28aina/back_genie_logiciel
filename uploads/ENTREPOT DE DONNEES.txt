@@ -1,0 +1,19 @@
+*****************************************ETAT DE L'ART ENTREPOT DE DONNEES*******************************************
+Exercice 
+1) Modelisatio  multi dimensionnelle  en utilisant multi dim du phenomene de pluvieumetrie a Madagascar sont issues du centre meteorologie Europeen.
+Ces donnes sont sous forme de matrices de valeur journalier.
+
+2) Modelisation multi-dimensionel d'un entrepot de donnees de vente de produit agricole (riz, manioc, maiis,...) a Madagascar pendant les 10 derniers annees 
+	           
+3) En tenant compte des criteres spatiales 
+
+PENTHAO : POUR ETL (INTEGRATION DE DONNEES)
+
+EXO1:
+ E.D COVID A MADA 
+	MODELE CONCEPTUEL MULTIDIM 
+ 
+
+
+
+                                                                                         

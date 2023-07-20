@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Route pour l'upload du livre
+// Route pour l'upload du livre  
 router.post('/upload', upload.single('livre'), controllerLivre.uploadLivre);
 
 
