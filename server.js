@@ -15,9 +15,11 @@ const PORT = process.env.PORT || 8000
 
 const clientRoutes = require('./routes/clientRoutes');
 const livreRoutes= require('./routes/livreRoutes');
+const loginRoutes=require('./routes/loginRoutes');
 
 app.use('/api', clientRoutes);
 app.use('/api', livreRoutes);
+app.use('/api',loginRoutes)
 
 
 
