@@ -1,13 +1,14 @@
 const express = require('express');
-const clientController = require('../Controllers/clientController');
-//importation pour proteger les routes
-const {verificationtoken}=require('../Midllewares/token');
 
 const router = express.Router();
+const clientController = require('../Controllers/clientController');
+//importation pour proteger les routes
+const {verifyAccessToken}=require('../Midllewares/token');
+
 
 
 // Récupérer tous les clients
-router.get('/clients', verificationtoken, clientController.getAllClients);
+router.get('/clients',verifyAccessToken, clientController.getAllClients);
 
 // Récupérer tous les clients
 router.get('/auth', clientController.authentificationClient);

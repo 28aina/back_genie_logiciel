@@ -1,6 +1,6 @@
 const Client =require('../Models/clientModel');
-const { generateAccessToken } = require("../middlewares/token");
-
+const { generateAccessToken } = require('../Midllewares/token');
+const bcrypt = require('bcrypt');
 
 //verification champs
 function verification(req){

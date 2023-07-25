@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const controllerLivre= require('../Controllers/livreController');
 //importation pour proteger les routes
-const {verificationtoken}=require('../Midllewares/token');
+//const {verificationtoken}=require('../Midllewares/token');
 
 // Configuration de Multer pour l'upload des livres
 const storage = multer.diskStorage({
@@ -15,13 +15,14 @@ const storage = multer.diskStorage({
   }
 });
 const upload = multer({ storage });
+const {verifyAccessToken}=require('../Midllewares/token');
 
 // Route pour l'upload du livre  
-router.post('/upload',verificationtoken, upload.single('livre'), controllerLivre.uploadLivre);
+router.post('/upload', upload.single('livre'), controllerLivre.uploadLivre);
 
 
 // Route pour mettre à jour un livre
-router.put('/livres/:id',verificationtoken,upload.single('livre'), controllerLivre.updateLivre);
+router.put('/livres/:id',upload.single('livre'), controllerLivre.updateLivre);
 
 // Route pour obtenir tous les livres
 router.get('/livres', controllerLivre.getAllLivres);
