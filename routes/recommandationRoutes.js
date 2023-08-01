@@ -4,13 +4,12 @@ const recommandationController = require('../Controllers/recommandationControlle
 const router = express.Router();
 
 // Récupérer tous les clients
-router.get('/recommander', recommandationController.recommanderClient);
+router.post('/recommander', recommandationController.recommanderLivre);
 
 // si le type de livre n'existe pas encore, on utilise cette route pour l'inserer
-router.post('/inserer-recommandation', recommandationController.insererRecommandation);
+router.post('/inserer-recommandation', recommandationController.incrementOrAddRecommandation);
 
-// si le type de livre existe, on passe a l'incrementation  
-router.put('/update-recommandatiom/:id', recommandationController.updateRecommandation);
+
 
 
 
