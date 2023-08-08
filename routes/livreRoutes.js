@@ -32,6 +32,10 @@ router.delete('/livres/:id', controllerLivre.deleteLivre);
 
 // Route pour obtenir un livre par son ID
 router.get('/livres/:id', controllerLivre.getByIdLivre);
+// Route pour chercher un livre par titre
+router.post('/chercheTitreLivre',controllerLivre.chercheTitreLivre);
+//Route pour chercher un livre par nom de livre
+router.post('/chercheNom',controllerLivre.chercheNom);
 
 
 module.exports = router;

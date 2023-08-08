@@ -41,11 +41,15 @@ const login = async (req,res) => {
        }
    
        // Authentification réussie
+       
        return res.status(200)
         //retourn token
-        .json(generateAccessToken({ utilisateur: utilisateur.username }));
-    
-    }
+        .json(generateAccessToken({
+           utilisateur: utilisateur.username,
+           utilisateur: utilisateur.password,
+          Message:"connecté"
+          }));
+        }
     catch(error){
         //error serveur 
         console.error(error);
