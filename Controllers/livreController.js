@@ -144,42 +144,41 @@ const getByIdLivre = async (req, res) => {
 };
 
 
-
+//fonction pour la recherche à partir de titre et original name
 const chercheTitreLivre =  async(req, res)=> {
 try{
+  const searchQuery = req.body.search;
+
+  if(!searchQuery){
+    res.status(400).json({
+      status : false,
+      message:"Le champ de recherche st vide"
+    });
+    return;
+  }
+
   const livre = await Livre.find({
-    where:{
-      titre: req.body.nomlivre,
-    }
+    $or :[
+      {titre:{$regex : req.body.search,$options :'i'}},
+      {originalname:{$regex : req.body.search,$options:'i'}}
+    ] 
   });
-  //retourne les resultats 
-  res.status(200).json({livre})
+  if(livre.length > 0){
+    //retourne les resultats 
+  res.status(200).json({livre});
+  }else {
+    res.status(404).json({
+      status : false,
+      message:"Aucun livre trouvé"
+    });
+  }
+  
 }catch(error){
   res.status(400).json({
     status:false,
-    message:"Le champs ne doive pas etre vide"
-  })
-}
-}
-//methode pour chercher une livre par originalName
-const chercheNom = async(req,res)=>{
-  try{
-    const livre = await Livre.find({
-      where:{
-        originalname:req.body.nomlivre,
-      }
-    });
-    //retourne les resultats 
-    res.status(200).json({livre})
-  }
-  catch(error){
-    res.status(400).json({
-    status:false,
-    message:"Le champs ne voive pas etre vide"
+    message:"Une erreur s'est produite lors de la recherche"
   })
 }
 } 
 
-
-
-module.exports = { uploadLivre, updateLivre, getAllLivres, deleteLivre, getByIdLivre,chercheNom,chercheTitreLivre };
+module.exports = { uploadLivre, updateLivre, getAllLivres, deleteLivre, getByIdLivre,chercheTitreLivre };
